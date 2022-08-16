@@ -6,7 +6,14 @@ namespace CursoDesignPatterns
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            IImpostoService iss = new ISSService();
+            IImpostoService icms = new ICMSService();
+
+            Orcamento orcamento = new Orcamento(500.0);
+
+            CalculadorDeImpostos calculador = new CalculadorDeImpostos();
+
+            calculador.RealizaCalculo(orcamento, iss);
         }
     }
 }
