@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CursoDesignPatterns.MVC.Interface;
+using CursoDesignPatterns.MVC.Model;
+using CursoDesignPatterns.MVC.Service.Impostos;
+using System;
 
 namespace CursoDesignPatterns
 {
@@ -6,14 +9,30 @@ namespace CursoDesignPatterns
     {
         static void Main(string[] args)
         {
-            IImpostoService iss = new ISSService();
-            IImpostoService icms = new ICMSService();
+            //DESIGN PATTERN STRATEGY
 
-            Orcamento orcamento = new Orcamento(500.0);
+            //IImpostoService iss = new ISSService();
+            //IImpostoService icms = new ICMSService();
 
-            CalculadorDeImpostos calculador = new CalculadorDeImpostos();
+            //Orcamento orcamento = new Orcamento(500.0);
 
-            calculador.RealizaCalculo(orcamento, iss);
+            //CalculadorDeImpostos calculador = new CalculadorDeImpostos();
+
+            //calculador.RealizaCalculo(orcamento, iss);
+            //calculador.RealizaCalculo(orcamento, icms);
+
+            //DESIGN PATTERN CHAIN OF RESPONSIBILITY
+
+            CalculadorDeDescontos calculador = new CalculadorDeDescontos();
+
+            Orcamento orcamento = new Orcamento(50);
+            orcamento.AdicionaItem(new Item("Caneta", 30));
+            orcamento.AdicionaItem(new Item("Lapis", 20));
+
+            double desconto = calculador.Calcula(orcamento);
+            Console.WriteLine(desconto);
+
+            Console.ReadKey();
         }
     }
 }

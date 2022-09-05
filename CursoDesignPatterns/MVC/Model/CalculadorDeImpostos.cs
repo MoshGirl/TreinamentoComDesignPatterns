@@ -1,6 +1,7 @@
-﻿using System;
+﻿using CursoDesignPatterns.MVC.Interface;
+using System;
 
-namespace CursoDesignPatterns
+namespace CursoDesignPatterns.MVC.Model
 {
     public class CalculadorDeImpostos
     {

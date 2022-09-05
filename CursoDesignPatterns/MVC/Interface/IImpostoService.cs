@@ -1,4 +1,6 @@
-﻿namespace CursoDesignPatterns
+﻿using CursoDesignPatterns.MVC.Model;
+
+namespace CursoDesignPatterns.MVC.Interface
 {
     public interface IImpostoService
     {
